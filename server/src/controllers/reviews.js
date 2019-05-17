@@ -32,11 +32,10 @@ export const getReviews = async (req, res, next) => {
 }
 
 
-
 export const postReview = async (req, res) => {
 	try {
-		if(!req.body.name){
-			res.status(401).json({message:'Name is a required field'})
+		if(!req.body.rating || !req.body.user_id  || !req.body.video_id){
+			res.status(401).json({message:'Missing required fields'})
 		}
 		const lastId = await db.insertReview(req.body)
 		res.status(201).json(lastId)

@@ -26,7 +26,7 @@ const dao = {
 	deleteReview,
 	
 	// USER
-	getUser,
+	getUsers,
 	insertUser,
 	getUserById,
 	updateUser,
@@ -98,6 +98,39 @@ async function updateVideo(id, video){
 
 async function deleteVideo(id){
 	return db('video')
+		.where({id:id})
+		.del()
+}
+// =========================
+//  	 User
+// =========================
+
+async function getUsers(){
+	return db('user')
+}
+
+async function insertUser(user){
+	return db.insert(user)
+		.into('user')
+}
+
+async function getUserById(id){
+	return db('user')
+	.where({id:id})
+	.then(users => {
+		return users
+	})
+	.catch(e => e)
+}
+
+async function updateUser(id, user){
+	return db.where({id:id})
+		.update(user)
+		.into('user')
+}
+
+async function deleteUser(id){
+	return db('user')
 		.where({id:id})
 		.del()
 }

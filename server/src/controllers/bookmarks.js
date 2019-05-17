@@ -50,7 +50,7 @@ export const getBookmarkById = async (req, res, next) => {
 
 export const postBookmark = async (req, res) => {
 	try {
-		if(!req.body.name){
+		if(!req.body.note || !req.body.subtitle_range || !req.body.current_position || !req.body.video_id ){
 			res.status(401).json({message:'Name is a required field'})
 		}
 		const lastId = await db.insertBookmark(req.body)

@@ -1,12 +1,12 @@
 
-import * as studentController from '../controllers/reviews'
+import * as videoController from '../controllers/videos'
 
-function setupCohortRoutes(router){
-	router.get("/", studentController.getStudents)
-	router.post('/', studentController.postStudents)
-	router.get('/:id', studentController.getStudent)
-	router.put('/:id', studentController.updateStudent)
-	router.delete('/:id', studentController.deleteStudent)
+function setupVideoRoutes(router){
+	router.get("/", videoController.getVideos)
+	router.post('/', videoController.postVideo)
+	router.get('/:id', videoController.getVideo)
+	router.put('/:id', videoController.updateVideo)
+	router.delete('/:id', videoController.deleteVideo)
 }
 
-export default setupCohortRoutes
+export default setupVideoRoutes

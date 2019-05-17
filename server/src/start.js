@@ -4,7 +4,6 @@ import helmet from 'helmet'
 import setupRoutes from './routes'
 
 async function startServer({port = process.env.SERVER_PORT} = {}){
-	console.log('startServer')
 	port = 3000;
 	const app = express()
 	app.use(helmet())
